@@ -1,0 +1,75 @@
+VAR,LABEL,TYPE,INPUT,QUESTION
+CASE,Interview-Nummer (fortlaufend),METRIC,SYSTEM,
+SERIAL,Personenkennung oder Teilnahmecode (sofern verwendet),TEXT,SYSTEM,
+REF,Referenz (sofern im Link angegeben),TEXT,SYSTEM,
+QUESTNNR,Fragebogen der im Interview verwendet wurde,TEXT,SYSTEM,
+MODE,Interview-Modus,TEXT,SYSTEM,
+STARTED,Zeitpunkt zu dem das Interview begonnen hat (Europe/Berlin),TIME,SYSTEM,
+A101,Geschlecht ,NOMINAL,SELECTION,Geschlecht 
+A102,Alter,NOMINAL,SELECTION,Wählen Sie bitte Ihr Alter aus 
+A103,Betriebszugehörigkeit ,NOMINAL,SELECTION,Wählen Sie bitte die Dauer Ihrer Betriebszugehörigkeit aus 
+A104,Berufsgruppe,NOMINAL,SELECTION,Wählen Sie bitte aus welcher Berufsgruppe Sie angehören
+A201,Führung,NOMINAL,SELECTION,Unser/e Vorgesetzte/r hat ein offenes Ohr für die Sorgen von uns Mitarbeitenden.
+A203,Führung ,NOMINAL,SELECTION,Der Führungskraft liegt es am Herzen dass wir uns als Mitarbeitende wohlfühlen.
+A204,Führung ,NOMINAL,SELECTION,Persönlichen Ärger oder Ärger mit der Geschäftsführung lässt die Führungskraft an uns Mitarbeitenden aus.
+A205,Führung,NOMINAL,SELECTION,Die Führungskraft gibt auch negatives Feedback in Gegenwart anderer Mitarbeitenden.
+A207,Führung ,NOMINAL,SELECTION,Die Führungskraft weigert sich Meinungen von Mitarbeitenden anzunehmen wenn sie von der eigenen abweicht.
+A206,Führung ,NOMINAL,SELECTION,Die Führungskraft lässt einen wissen wie gut man seine Arbeit macht.
+A208,Führung ,NOMINAL,SELECTION,Die Führungskraft trifft Entscheidungen alleine ohne die Zustimmung der Mitarbeitenden.
+A210,Unternehmen ,NOMINAL,SELECTION,Wenn man eine gute Idee hat kann man diese auch in der Organisation verwirklichen.
+A211,Unternehmen ,NOMINAL,SELECTION,Bei wichtigen Entscheidungen werden Mitarbeitende miteinbezogen.
+A214,Zusammenarbeit ,NOMINAL,SELECTION,Meine Führungskraft nimmt sich genügend Zeit um Aufgaben mit mir abzustimmen und zu besprechen.
+A215,Zusammenarbeit ,NOMINAL,SELECTION,Ich erhalte regelmäßig Rückmeldung zu meinen Arbeitsergebnissen.
+A216,Zusammenarbeit ,NOMINAL,SELECTION,Anerkennung und Wertschätzung durch meine Führungskraft ist mir wichtig.
+A217,Zusammenarbeit ,NOMINAL,SELECTION,Führungskräfte aber auch Mitarbeiter*innen untereinander geben sich auch gegenseitig Informationen und Rückmeldungen.
+A218,Anreize : Ausweichoption (negativ) oder Anzahl ausgewählter Optionen,METRIC,SYSTEM,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_01,Anreize : Kinderbetreuung,DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_02,Anreize : Arbeitszeitgestaltung (Home office Mama/ Papa Dienstzeiten),DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_03,Anreize : Sabbatical,DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_04,Anreize : Mobilitätszuschuss,DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_05,Anreize : Work Life Balance (Getränke Obst/ Gemüse Förderung von Fitness vergünstigtes Mitarbeiteressen),DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_06,Anreize : individuelle Förderung der Fort- und Weiterbildung,DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_07,Anreize : Förderung persönlicher und tätigkeitsbezogener Entwicklung,DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A218_08,Anreize : jährliche Feedbackgespräche,DICHOTOMOUS,CHECKBOX,Welche Anreizsysteme (Corporate Benefits) werden in Ihrem Unternehmen angeboten?
+A303,MLQ,NOMINAL,SELECTION,Die Führungskraft versäumt es sich um Probleme zu kümmern bis sie wirklich ernst geworden sind.
+A306,MLQ,NOMINAL,SELECTION,Die Führungskraft spricht mit anderen über ihre wichtigsten Überzeugungen und Werte.
+A307,MLQ,NOMINAL,SELECTION,Die Führungskraft ist immer da wenn sie gebraucht wird.
+A308,MLQ,NOMINAL,SELECTION,Die Führungskraft berücksichtigt bei Problemen unterschiedliche Perspektiven.
+A310,MLQ,NOMINAL,SELECTION,Die Führungskraft macht mich stolz darauf mit ihr zu tun zu haben.
+A311,MLQ,NOMINAL,SELECTION,Die Führungskraft macht deutlich wer für bestimmte Leistungen verantwortlich ist.
+A312,MLQ,NOMINAL,SELECTION,Die Führungskraft wartet bis etwas schiefgegangen ist bis sie etwas unternimmt.
+A315,MLQ,NOMINAL,SELECTION,Die Führungskraft spricht mit Begeisterung über das was erreicht werden soll.
+A316,MLQ,NOMINAL,SELECTION,Die Führungskraft spricht klar aus was man erwarten kann wenn die gesteckten Ziele erreicht worden sind.
+A318,MLQ,NOMINAL,SELECTION,Die Führungskraft steckt ihr eigenes Interesse zurück wenn es um das Wohl der Gruppe geht.
+A319,MLQ,NOMINAL,SELECTION,Die Führungskraft berücksichtigt meine Individualität und behandelt mich nicht nur als einen*e Mitarbeiter*in unter vielen.
+A321,MLQ,NOMINAL,SELECTION,Die Führungskraft handelt in einer Weise die bei mir Respekt erzeugt.
+A322,MLQ,NOMINAL,SELECTION,Die Führungskraft kümmert sich in erster Linie um Fehler und Beschwerden.
+A325,MLQ,NOMINAL,SELECTION,Die Führungskraft strahlt Stärke und Vertrauen aus.
+A326,MLQ,NOMINAL,SELECTION,Die Führungskraft formuliert eine überzeugende Zukunftsvision.
+A327,MLQ,NOMINAL,SELECTION,Die Führungskraft macht mich auf Fehler aufmerksam damit die Anforderungen erfüllt werden.
+A328,MLQ,NOMINAL,SELECTION,Die Führungskraft trifft schnell und ohne zu zögern ihre Entscheidungen.
+A329,MLQ,NOMINAL,SELECTION,Die Führungskraft erkennt meine individuellen Bedürfnisse Fähigkeiten und Ziele.
+A330,MLQ,NOMINAL,SELECTION,Die Führungskraft bringt mich dazu Probleme aus verschiedenen Blickwinkeln zu betrachten.
+A331,MLQ,NOMINAL,SELECTION,Die Führungskraft hilft mir meine Stärken auszubauen.
+A334,MLQ,NOMINAL,SELECTION,Die Führungskraft betont die Wichtigkeit von Teamgeist und einem gemeinsamen Aufgabenverständnis.
+A335,MLQ,NOMINAL,SELECTION,Die Führungskraft zeigt Zufriedenheit wenn andere die Erwartung erfüllen.
+A336,MLQ,NOMINAL,SELECTION,Die Führungskraft hat großes Vertrauen dass gesteckte Ziele erreicht werden.
+A337,MLQ,NOMINAL,SELECTION,Die Führungskraft setzt sich für meine beruflichen Bedürfnisse und Interessen ein.
+A339,MLQ,NOMINAL,SELECTION,Die Führungskraft bringt mich dazu mehr zu schaffen als ich ursprünglich erwartet habe.
+A341,MLQ,NOMINAL,SELECTION,Die Führungskraft gestaltet die Zusammenarbeit so dass ich wirklich zufrieden bin.
+A347,MLQ,NOMINAL,SELECTION,Die Führungskraft motiviert mich immer wieder dazu dass ich mehr tue als ich müsste.
+A351,MLQ,NOMINAL,SELECTION,Die Führungskraft ist für mich so wichtig dass ich Kontakt zu ihr suche/ pflege.
+TIME001,Verweildauer Seite 1,METRIC,SYSTEM,
+TIME002,Verweildauer Seite 2,METRIC,SYSTEM,
+TIME003,Verweildauer Seite 3,METRIC,SYSTEM,
+TIME004,Verweildauer Seite 4,METRIC,SYSTEM,
+TIME_SUM,Verweildauer gesamt (ohne Ausreißer),METRIC,SYSTEM,
+MAILSENT,Versandzeitpunkt der Einladungsmail (nur für nicht-anonyme Adressaten),TIME,SYSTEM,
+LASTDATA,Zeitpunkt als der Datensatz das letzte mal geändert wurde,TIME,SYSTEM,
+FINISHED,Wurde die Befragung abgeschlossen (letzte Seite erreicht)?,BOOL,SYSTEM,
+Q_VIEWER,Hat der Teilnehmer den Fragebogen nur angesehen ohne die Pflichtfragen zu beantworten?,BOOL,SYSTEM,
+LASTPAGE,Seite die der Teilnehmer zuletzt bearbeitet hat,METRIC,SYSTEM,
+MAXPAGE,Letzte Seite die im Fragebogen bearbeitet wurde,METRIC,SYSTEM,
+MISSING,Anteil fehlender Antworten in Prozent,METRIC,SYSTEM,
+MISSREL,Anteil fehlender Antworten (gewichtet nach Relevanz),METRIC,SYSTEM,
+TIME_RSI,Ausfüll-Geschwindigkeit (relativ),METRIC,SYSTEM,

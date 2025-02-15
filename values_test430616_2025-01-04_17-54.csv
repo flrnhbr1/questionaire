@@ -1,0 +1,297 @@
+VAR,RESPONSE,MEANING
+A101,1,Maennlich
+A101,2,Weiblich
+A101,3,Divers
+A101,4,Keine Angaben
+A101,-9,nicht beantwortet
+A102,1,bis 25
+A102,2,25-30
+A102,3,31-49
+A102,4,50-55
+A102,5,56-60
+A102,6,>60
+A102,7,keine Angaben
+A102,-9,nicht beantwortet
+A103,1,<1 Jahr
+A103,2,1-3 Jahre
+A103,3,4-6 Jahre
+A103,4,7-9 Jahre
+A103,5,10-12 Jahre
+A103,6,>12 Jahre
+A103,-9,nicht beantwortet
+A104,1,Pflegefachkraft
+A104,2,OTA/ ATA
+A104,3,Hebamme
+A104,4,Ergotherapeut*in/ Physiotherapeut*in
+A104,5,Pflegefachassistent*in/ Pflegeassistent*in
+A104,6,Medizinische*r Fachangestellte*r
+A104,7,Auszubildende*r
+A104,8,Arzt*Aerztin
+A104,10,Andere
+A104,-9,nicht beantwortet
+A201,1,trifft gar nicht zu
+A201,2,trifft selten zu
+A201,3,trifft manchmal zu
+A201,4,trifft oft zu
+A201,5,trifft immer zu
+A201,-9,nicht beantwortet
+A203,1,trifft gar nicht zu
+A203,2,trifft selten zu
+A203,3,trifft manchmal zu
+A203,4,trifft oft zu
+A203,5,trifft immer zu
+A203,-9,nicht beantwortet
+A204,1,trifft gar nicht zu
+A204,2,trifft selten zu
+A204,3,trifft manchmal zu
+A204,4,trifft oft zu
+A204,5,trifft immer zu
+A204,-9,nicht beantwortet
+A205,1,trifft gar nicht zu
+A205,2,trifft selten zu
+A205,3,trifft manchmal zu
+A205,4,trifft oft zu
+A205,5,trifft immer zu
+A205,-9,nicht beantwortet
+A207,1,trifft gar nicht zu
+A207,2,trifft selten zu
+A207,3,trifft manchmal zu
+A207,4,trifft oft zu
+A207,5,trifft immer zu
+A207,-9,nicht beantwortet
+A206,1,trifft gar nicht zu
+A206,2,trifft selten zu
+A206,3,trifft manchmal zu
+A206,4,trifft oft zu
+A206,5,trifft immer zu
+A206,-9,nicht beantwortet
+A208,1,trifft gar nicht zu
+A208,2,trifft selten zu
+A208,3,trifft manchmal zu
+A208,4,trifft oft zu
+A208,5,trifft immer zu
+A208,-9,nicht beantwortet
+A210,1,trifft gar nicht zu
+A210,2,trifft selten zu
+A210,3,trifft manchmal zu
+A210,4,trifft oft zu
+A210,5,trifft immer zu
+A210,-9,nicht beantwortet
+A211,1,trifft gar nicht zu
+A211,2,trifft selten zu
+A211,3,trifft manchmal zu
+A211,4,trifft oft zu
+A211,5,trifft immer zu
+A211,-9,nicht beantwortet
+A214,1,trifft gar nicht zu
+A214,2,trifft selten zu
+A214,3,trifft manchmal zu
+A214,4,trifft oft zu
+A214,5,trifft immer zu
+A214,-9,nicht beantwortet
+A215,1,trifft gar nicht zu
+A215,2,trifft selten zu
+A215,3,trifft manchmal zu
+A215,4,trifft oft zu
+A215,5,trifft immer zu
+A215,-9,nicht beantwortet
+A216,1,trifft gar nicht zu
+A216,2,trifft selten zu
+A216,3,trifft manchmal zu
+A216,4,trifft oft zu
+A216,5,trifft immer zu
+A216,-9,nicht beantwortet
+A217,1,trifft gar nicht zu
+A217,2,trifft selten zu
+A217,3,trifft manchmal zu
+A217,4,trifft oft zu
+A217,5,trifft immer zu
+A217,-9,nicht beantwortet
+A218_01,1,nicht gewaehlt
+A218_01,2,ausgewaehlt
+A218_02,1,nicht gewaehlt
+A218_02,2,ausgewaehlt
+A218_03,1,nicht gewaehlt
+A218_03,2,ausgewaehlt
+A218_04,1,nicht gewaehlt
+A218_04,2,ausgewaehlt
+A218_05,1,nicht gewaehlt
+A218_05,2,ausgewaehlt
+A218_06,1,nicht gewaehlt
+A218_06,2,ausgewaehlt
+A218_07,1,nicht gewaehlt
+A218_07,2,ausgewaehlt
+A218_08,1,nicht gewaehlt
+A218_08,2,ausgewaehlt
+A303,1,nie
+A303,2,selten
+A303,3,hin und wieder
+A303,4,oft
+A303,5,regelmaessig/ fast immer
+A303,-9,nicht beantwortet
+A306,1,nie
+A306,2,selten
+A306,3,hin und wieder
+A306,4,oft
+A306,5,regelmaessig/ fast immer
+A306,-9,nicht beantwortet
+A307,1,nie
+A307,2,selten
+A307,3,hin und wieder
+A307,4,oft
+A307,5,regelmaessig/ fast immer
+A307,-9,nicht beantwortet
+A308,1,nie
+A308,2,selten
+A308,3,hin und wieder
+A308,4,oft
+A308,5,regelmaessig/ fast immer
+A308,-9,nicht beantwortet
+A310,1,nie
+A310,2,selten
+A310,3,hin und wieder
+A310,4,oft
+A310,5,regelmaessig/ fast immer
+A310,-9,nicht beantwortet
+A311,1,nie
+A311,2,selten
+A311,3,hin und wieder
+A311,4,oft
+A311,5,regelmaessig/ fast immer
+A311,-9,nicht beantwortet
+A312,1,nie
+A312,2,selten
+A312,3,hin und wieder
+A312,4,oft
+A312,5,regelmaessig/ fast immer
+A312,-9,nicht beantwortet
+A315,1,nie
+A315,2,selten
+A315,3,hin und wieder
+A315,4,oft
+A315,5,regelmaessig/ fast immer
+A315,-9,nicht beantwortet
+A316,1,nie
+A316,2,selten
+A316,3,hin und wieder
+A316,4,oft
+A316,5,regelmaessig/ fast immer
+A316,-9,nicht beantwortet
+A318,1,nie
+A318,2,selten
+A318,3,hin und wieder
+A318,4,oft
+A318,5,regelmaessig/ fast immer
+A318,-9,nicht beantwortet
+A319,1,nie
+A319,2,selten
+A319,3,hin und wieder
+A319,4,oft
+A319,5,regelmaessig/ fast immer
+A319,-9,nicht beantwortet
+A321,1,nie
+A321,2,selten
+A321,3,hin und wieder
+A321,4,oft
+A321,5,regelmaessig/ fast immer
+A321,-9,nicht beantwortet
+A322,1,nie
+A322,2,selten
+A322,3,hin und wieder
+A322,4,oft
+A322,5,regelmaessig/ fast immer
+A322,-9,nicht beantwortet
+A325,1,nie
+A325,2,selten
+A325,3,hin und wieder
+A325,4,oft
+A325,5,regelmaessig/ fast immer
+A325,-9,nicht beantwortet
+A326,1,nie
+A326,2,selten
+A326,3,hin und wieder
+A326,4,oft
+A326,5,regelmaessig/ fast immer
+A326,-9,nicht beantwortet
+A327,1,nie
+A327,2,selten
+A327,3,hin und wieder
+A327,4,oft
+A327,5,regelmaessig/ fast immer
+A327,-9,nicht beantwortet
+A328,1,nie
+A328,2,selten
+A328,3,hin und wieder
+A328,4,oft
+A328,5,regelmaessig/ fast immer
+A328,-9,nicht beantwortet
+A329,1,nie
+A329,2,selten
+A329,3,hin und wieder
+A329,4,oft
+A329,5,regelmaessig/ fast immer
+A329,-9,nicht beantwortet
+A330,1,nie
+A330,2,selten
+A330,3,hin und wieder
+A330,4,oft
+A330,5,regelmaessig/ fast immer
+A330,-9,nicht beantwortet
+A331,1,nie
+A331,2,selten
+A331,3,hin und wieder
+A331,4,oft
+A331,5,regelmaessig/ fast immer
+A331,-9,nicht beantwortet
+A334,1,nie
+A334,2,selten
+A334,3,hin und wieder
+A334,4,oft
+A334,5,regelmaessig/ fast immer
+A334,-9,nicht beantwortet
+A335,1,nie
+A335,2,selten
+A335,3,hin und wieder
+A335,4,oft
+A335,5,regelmaessig/ fast immer
+A335,-9,nicht beantwortet
+A336,1,nie
+A336,2,selten
+A336,3,hin und wieder
+A336,4,oft
+A336,5,regelmaessig/ fast immer
+A336,-9,nicht beantwortet
+A337,1,nie
+A337,2,selten
+A337,3,hin und wieder
+A337,4,oft
+A337,5,regelmaessig/ fast immer
+A337,-9,nicht beantwortet
+A339,1,nie
+A339,2,selten
+A339,3,hin und wieder
+A339,4,oft
+A339,5,regelmaessig/ fast immer
+A339,-9,nicht beantwortet
+A341,1,nie
+A341,2,selten
+A341,3,hin und wieder
+A341,4,oft
+A341,5,regelmaessig/ fast immer
+A341,-9,nicht beantwortet
+A347,1,nie
+A347,2,selten
+A347,3,hin und wieder
+A347,4,oft
+A347,5,regelmaessig/ fast immer
+A347,-9,nicht beantwortet
+A351,1,nie
+A351,2,selten
+A351,3,hin und wieder
+A351,4,oft
+A351,5,regelmaessig/ fast immer
+A351,-9,nicht beantwortet
+FINISHED,0,abgebrochen
+FINISHED,1,ausgefuellt
+Q_VIEWER,0,Teilnehmer
+Q_VIEWER,1,Durchklicker

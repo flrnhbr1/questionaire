@@ -1,0 +1,91 @@
+Laiseez Faire Fragen
+LF	A307
+LF	A328
+LF = ['A307', 'A328']
+
+
+Transaktional Fragen
+TA	A303
+TA	A311
+TA	A312
+TA	A316
+TA	A322
+TA	A327 (Ersatz)
+TA	A335
+TA = ['A303', 'A311', 'A312', 'A316', 'A322', 'A327', 'A335']
+
+    Unterteilte Fragen
+    MBP = ['A303', 'A312']
+    MBA = ['A322', 'A327']
+    CR = ['A311', 'A316', 'A335']
+
+
+Transformational Fragen
+TF	A306
+TF	A308
+TF	A310
+TF	A315
+TF	A318
+TF	A319
+TF	A321
+TF	A326
+TF	A329
+TF	A330
+TF	A331
+TF	A334
+TF	A336
+TF	A341 (Ersatz)
+TF	A347 (Ersatz)
+TF = ['A306', 'A308', 'A310', 'A315', 'A318', 'A319', 'A321', 'A326', 'A329', 'A330', 'A331', 'A334', 'A336', 'A341', 'A347']
+
+    Unterteilte Fragen TF
+    IIB	TF	A306
+    IIB	TF	A308
+    IIA	TF	A310
+    IM	TF	A315
+    IIA	TF	A318
+    IC	TF	A319
+    IIA	TF	A321
+    IM	TF	A326
+    IC	TF	A329
+    IS	TF	A330
+    IC	TF	A331
+    IIB	TF	A334
+    IM	TF	A336
+    IIB	TF	A341
+    IS	TF	A347
+
+    IIB = A306, A308, A334, A341
+    IIA = A310, A318, A321
+    IM = A315, A326, A336
+    IC = A319, A329, A331
+    IS = A330, A347
+
+
+
+A201			HYG
+A214			HYG
+A215			HYG
+A217			HYG
+A219			HYG     (A201 + A210)
+A222			HYG     (A211 + A217)
+HYG = ['A201', 'A214', 'A215', 'A217', 'A219', 'A222']
+
+A204			-HYG
+A221			-HYG    (A207 + A208)
+HYG_umkodiert = ['A204', 'A221']
+
+A203			MOT
+A206			MOT
+A210			MOT
+A211			MOT
+A220			MOT     (A203 + A206 + A215)
+MOT = ['A203', 'A206', 'A210', 'A211', 'A220']
+
+A205			-MOT
+A207			-MOT
+A208			-MOT
+MOT_umkodiert = ['A205', 'A207', 'A208']
+
+A216			Nicht einbeziehen, da andere Fragestruktur
+A223	        Nicht einbeziehen, da eventuell anders beantwortet und Daten daher eventuell uneindeutig
