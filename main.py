@@ -3,8 +3,8 @@ import calc_and_plot_functions as clc_plt
 
 
 if __name__ == '__main__':
-    data_filename = './data_test430616_2025-01-19_21-03.csv'
-    var_filename = './values_test430616_2025-01-04_17-54.csv'
+    data_filename = 'data/data_test430616_2025-01-19_21-03.csv'
+    var_filename = 'data/values_test430616_2025-01-04_17-54.csv'
 
     variables = rd.read_variable_values_csv(var_filename)
     prob_leadership_styles, prob_motivation, prob_benefits = rd.read_data_from_questions(data_filename)

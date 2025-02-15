@@ -61,7 +61,7 @@ def read_data_ffz_mlq_relevant(filename, q_ffz, q_mlq):
 
 if __name__ == '__main__':
 
-    data_filename = './data_test430616_2025-01-19_21-03.csv'
+    data_filename = 'data/data_test430616_2025-01-19_21-03.csv'
 
     questions_ffz = ['A201', 'A203', 'A204', 'A205', 'A206', 'A207', 'A208', 'A210', 'A211', 'A214', 'A215',
                      'A216', 'A217']
