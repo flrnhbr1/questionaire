@@ -7,12 +7,7 @@ if __name__ == '__main__':
     var_filename = 'data/values_test430616_2025-01-04_17-54.csv'
 
     variables = rd.read_variable_values_csv(var_filename)
-    prob_leadership_styles, prob_motivation, prob_benefits = rd.read_data_from_questions(data_filename)
-
-    # hyg_per_person
-    # mot_per_person, prob_tf_per_person, prob_ta_per_person, prob_lf_per_person, benef_hyg, benef_mot, \
-    #     prob_mbp_per_person, prob_mba_per_person, prob_cr_per_person = rd.read_data_from_questions(data_filename)
-
+    prob_leadership_styles, prob_motivation, benefit_amount = rd.read_data_from_questions(data_filename)
 
     # analyze relevant demographics of data
     gender, age, years, job = rd.read_demographic_data_relevant(data_filename)
@@ -21,7 +16,8 @@ if __name__ == '__main__':
 
     # calculate and plot regressions
 
-    # transformational
+    # for all leadership styles vs. motivation
+    # prepare data-carriers
     x = [None] * 11
     models = [None] * 11
     y_pred = [None] * 11
@@ -29,24 +25,34 @@ if __name__ == '__main__':
     colors = ['blue', 'cornflowerblue', 'cornflowerblue', 'cornflowerblue', 'cornflowerblue', 'cornflowerblue', 'green',
               'limegreen', 'limegreen', 'limegreen', 'red']
 
-    # for all leadership styles
     for i in range(len(x)):
         x[i], models[i], y_pred[i] = clc_plt.calc_regression(prob_leadership_styles[i], prob_motivation[1])
-        clc_plt.plot_regression_leadership_style(x[i], prob_motivation[1], y_pred[i], names[i], colors[i])
-
-
-    # for all benefits
-    x_ben_hyg, model_ben_hyg, y_pred_ben_hyg = clc_plt.calc_regression(prob_benefits[0], prob_motivation[0])
-    clc_plt.plot_regression_benefits(x_ben_hyg, prob_motivation[0], y_pred_ben_hyg, 'Hygienefaktoren', 'gold')
-
-    x_ben_mot, model_ben_mot, y_pred_ben_mot = clc_plt.calc_regression(prob_benefits[1], prob_motivation[1])
-    clc_plt.plot_regression_benefits(x_ben_mot, prob_motivation[1], y_pred_ben_mot, 'Motivatoren', 'brown')
+        clc_plt.plot_regression(x[i], prob_motivation[1], y_pred[i], names[i], colors[i],
+                                                 "Mitarbeiter*innenmotivation [%]")
 
     # plot regressions coefficients and confidence intervals
-    clc_plt.plot_regression_coefficients_leadership_styles(models, 'Führungsstile', names, colors)
+    clc_plt.plot_regression_coeff_leadership_styles(models, 'Führungsstile', names, colors)
 
-    #
-    # clc_plt.plot_regression_coefficients_benefits(model_ben_hyg, model_ben_mot)
-    # print(model_tf.summary())
-    # print(model_ta.summary())
-    # print(model_lf.summary())
+    # for all leadership styles vs. benefits
+    # tf vs motivatoren beneefits
+    # ta vs hygiene benefits
+    # lf vs all
+    # prepare data-carriers
+    x = [None] * 3
+    models = [None] * 3
+    y_pred = [None] * 3
+    names = ['TF vs MOT', 'TA vs HYG', 'LF VS ALL']
+    colors = ['blue', 'green', 'red']
+
+    x[0], models[0], y_pred[0] = clc_plt.calc_regression(prob_leadership_styles[0], benefit_amount[1])
+    clc_plt.plot_regression(x[0], benefit_amount[1], y_pred[0], 'TF', colors[0], "Anzahl Motivatoren Anreize")
+
+    x[1], models[1], y_pred[1] = clc_plt.calc_regression(prob_leadership_styles[6], benefit_amount[0])
+    clc_plt.plot_regression(x[1], benefit_amount[0], y_pred[1], 'TA', colors[1], "Anzahl Hygienefaktoren Anreize")
+
+    x[2], models[2], y_pred[2] = clc_plt.calc_regression(prob_leadership_styles[10], benefit_amount[0]+benefit_amount[1])
+    clc_plt.plot_regression(x[2], benefit_amount[0]+benefit_amount[1], y_pred[2], 'LF', colors[2], "Anzahl Anreize")
+
+    # plot regressions coefficients and confidence intervals
+    clc_plt.plot_regression_coeff_benefits(models, 'Führungsstile vs Anreize', names, colors)
+

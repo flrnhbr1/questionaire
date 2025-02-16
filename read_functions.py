@@ -8,7 +8,7 @@ def read_data_from_questions(filename):
         :param filename: link of the csv file
         :return: leadership-styles :[tf, iib, iia, im, ic, is_, ta, mbp, mba, cr, lf]
                  motivation [hyg, mot]
-                 benefits [ben_hyg]
+                 benefits [ben_hyg, ben_mot]
         """
     # definition of which questions, define what
     q_ffz_hyg = ['A201', 'A214', 'A215', 'A217', 'A219', 'A222', 'A204', 'A221']
@@ -95,22 +95,22 @@ def read_data_from_questions(filename):
 
 
     # calc per person and normalize (0-5)
-    hyg = data_ffz_hyg.sum(axis=1) / len(q_ffz_hyg)
-    mot = data_ffz_mot.sum(axis=1) / len(q_ffz_mot)
+    hyg = (data_ffz_hyg.sum(axis=1) / len(q_ffz_hyg)) * 20
+    mot = (data_ffz_mot.sum(axis=1) / len(q_ffz_mot)) * 20
 
-    tf = data_mlq_tf.sum(axis=1) / len(q_mlq_tf)
-    iib = data_mlq_iib.sum(axis=1) / len(q_mlq_iib)
-    iia = data_mlq_iia.sum(axis=1) / len(q_mlq_iia)
-    im = data_mlq_im.sum(axis=1) / len(q_mlq_im)
-    ic = data_mlq_ic.sum(axis=1) / len(q_mlq_ic)
-    is_ = data_mlq_is.sum(axis=1) / len(q_mlq_is)
+    tf = (data_mlq_tf.sum(axis=1) / len(q_mlq_tf)) * 20
+    iib = (data_mlq_iib.sum(axis=1) / len(q_mlq_iib)) * 20
+    iia = (data_mlq_iia.sum(axis=1) / len(q_mlq_iia)) * 20
+    im = (data_mlq_im.sum(axis=1) / len(q_mlq_im)) * 20
+    ic = (data_mlq_ic.sum(axis=1) / len(q_mlq_ic)) * 20
+    is_ = (data_mlq_is.sum(axis=1) / len(q_mlq_is)) * 20
 
-    ta = data_mlq_ta.sum(axis=1) / len(q_mlq_ta)
-    mbp = data_mlq_mbp.sum(axis=1) / len(q_mlq_mbp)
-    mba = data_mlq_mba.sum(axis=1) / len(q_mlq_mba)
-    cr = data_mlq_cr.sum(axis=1) / len(q_mlq_cr)
+    ta = (data_mlq_ta.sum(axis=1) / len(q_mlq_ta)) * 20
+    mbp = (data_mlq_mbp.sum(axis=1) / len(q_mlq_mbp)) * 20
+    mba = (data_mlq_mba.sum(axis=1) / len(q_mlq_mba)) * 20
+    cr = (data_mlq_cr.sum(axis=1) / len(q_mlq_cr)) * 20
 
-    lf = data_mlq_lf.sum(axis=1) / len(q_mlq_lf)
+    lf = (data_mlq_lf.sum(axis=1) / len(q_mlq_lf)) * 20
 
     ben_hyg = data_ben_hyg.sum(axis=1)
     ben_mot = data_ben_mot.sum(axis=1)
