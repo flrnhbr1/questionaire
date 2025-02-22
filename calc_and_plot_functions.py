@@ -1,8 +1,9 @@
 import csv
 import statsmodels.api as sm
-import statsmodels.api as sm_cor
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 # calculation functions
@@ -112,7 +113,6 @@ def plot_validity_count(filename):
     plt.close()
 
 
-
 def plot_regression(x_plt, y_plt, y_pred_plt, name, col, y_label):
 
     # Plot
@@ -129,7 +129,7 @@ def plot_regression(x_plt, y_plt, y_pred_plt, name, col, y_label):
     plt.close()
 
 
-def plot_regression_coeff_leadership_styles(models, name, x_axis_vector, cols):
+def plot_regression_coeff_leadership_motivation(models, name, x_axis_vector, cols):
     R_squared_adj = []
     plt.figure(figsize=(10, 10))
     for i in range(len(models)):
@@ -165,7 +165,7 @@ def plot_regression_coeff_leadership_styles(models, name, x_axis_vector, cols):
         # for model quality
         R_squared_adj.append(np.round(model.rsquared_adj * 100, 2))
 
-    plt.ylim(-100, 130)
+    plt.ylim(-100, 140)
     plt.title('Regressionskoeffizienten mit 95% Konfidenzintervallen')
     plt.xlabel('Führungsstil')
     plt.ylabel('Einfluss auf die Motivation [%]')
@@ -194,141 +194,35 @@ def plot_regression_coeff_leadership_styles(models, name, x_axis_vector, cols):
     plt.close()
 
 
-def plot_regression_coeff_benefits(models, name, x_axis_vector, cols):
-    R_squared_adj = []
-    plt.figure(figsize=(10, 10))
-    for i in range(len(models)):
-        model = models[i]
-        # get coefficients
-        beta1 = model.params[0] * 100
+def plot_correlation_leadership_benefits(leadership, benefits, name):
+    data = {
+        name[0]: leadership[0],
+        name[1]: leadership[1],
+        name[2]: leadership[2],
+        name[3]: leadership[3],
+        name[4]: leadership[4],
+        name[5]: leadership[5],
+        name[6]: leadership[6],
+        name[7]: leadership[7],
+        name[8]: leadership[8],
+        name[9]: leadership[9],
+        name[10]: leadership[10],
+        "Maslow_1": benefits[0],
+        "Maslow_2": benefits[1],
+        "Maslow_3": benefits[2],
+        "Maslow_4": benefits[3],
+        "Maslow_5": benefits[4]
+    }
 
-        # get confidence intervals for beta 1
-        conf_intervals = model.conf_int(0.05).iloc[1]
+    df = pd.DataFrame(data)
 
-        # limits of confidence intervalls
-        lower_bound_beta1 = conf_intervals[0] * 100
-        upper_bound_beta1 = conf_intervals[1] * 100
+    # calculate pearson-correlation
+    correlation_matrix = df.corr(method="pearson").iloc[:11, -5:]
+    #print(correlation_matrix)
 
-        # to shift the text
-        # bias_text_hor = 0.15
-        # if i == len(x_axis_vector) - 1:
-        #     bias_text_hor -= 0.3
-        bias_text_hor = 0.0
-        bias_text_ver_reg = 4
-        bias_text_ver_conf = 1
-        plt.errorbar(x=x_axis_vector[i], y=beta1, yerr=[[beta1 - lower_bound_beta1], [upper_bound_beta1 - beta1]],
-                     fmt='o', color=cols[i], ecolor=cols[i], elinewidth=2, capsize=5)
-        # name regression coefficient
-        plt.text(i + bias_text_hor, beta1+bias_text_ver_reg, f"{beta1:.2f}" + "%", ha='center', va='center',
-                 fontsize=10, color='black', zorder=3, bbox=dict(facecolor='white', edgecolor=cols[i], boxstyle='round,pad=0.3'))
-        # name confidence intervall limits
-        plt.text(i + bias_text_hor, lower_bound_beta1-bias_text_ver_conf, f"{lower_bound_beta1:.2f}" + "%", ha='center', va='top',
-                 fontsize=8, color=cols[i])
-        plt.text(i + bias_text_hor, upper_bound_beta1+bias_text_ver_conf , f"{upper_bound_beta1:.2f}" + "%", ha='center', va='bottom',
-                 fontsize=8, color=cols[i])
-
-        # for model quality
-        R_squared_adj.append(np.round(model.rsquared_adj * 100, 2))
-
-    plt.ylim(-100, 130)
-    plt.title('Regressionskoeffizienten mit 95% Konfidenzintervallen')
-    plt.xlabel('Führungsstil')
-    plt.ylabel('Einfluss auf die Anreize [%]')
-    plt.grid(True)
-    # plt.xticks(rotation=90)
-    plt.savefig("./plots/conf_intervals_beta1_" + str(name) + ".png")
+    # plot heatmap
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5)
+    plt.title("Korrelation zwischen Führungsstilen und angebotenen Anreizen")
+    plt.savefig("./plots/correlation_führungsstil_anreize")
     plt.close()
-
-    # plot model quality
-    plt.figure(figsize=(10, 10))
-    counter = 0
-    for r in R_squared_adj:
-        bars = plt.bar(x_axis_vector[counter], r, zorder=2, color=cols[counter])
-        for bar in bars:
-            yval = bar.get_height()  # Höhe der jeweiligen Bar
-            plt.text(bar.get_x() + bar.get_width() / 2, yval + 1, f'{yval}' + '%', ha='center', fontsize=12,
-                     fontweight='bold', va='bottom', zorder=3)
-            plt.grid(True, zorder=1)
-        counter += 1
-    plt.grid(True, zorder=1)
-    plt.title("Modellqualität (Adjusted R²)")
-    plt.ylim(0, 100)
-    plt.xlabel('Führungsstil')
-    plt.ylabel('Adjusted R² [%]')
-    plt.savefig("./plots/R_squared_" + str(name) + ".png")
-    plt.close()
-
-
-
-# #def plot_regression_coefficients_benefits(model_hyg, model_mot):
-#     x_axis_vector = ['Hygienefaktoren', 'Motivatoren']
-#     name = 'Anreize'
-#     R_squared_adj = []
-#     plt.figure(figsize=(10, 10))
-#     counter = 0
-#     for i in range(2):
-#         model = model_hyg
-#         # workaround for iteration over models
-#         if i == 0:
-#             model = model_hyg
-#         if i == 1:
-#             model = model_mot
-#
-#         # get coefficients
-#         beta1 = model.params[0] * 100
-#
-#         # get confidence intervals for beta 1
-#         conf_intervals = model.conf_int(0.05).iloc[1]
-#
-#         # limits of confidence intervalls
-#         lower_bound_beta1 = conf_intervals[0] * 100
-#         upper_bound_beta1 = conf_intervals[1] * 100
-#
-#         # to shift the text
-#         bias_text = 0.15
-#         if counter == len(x_axis_vector) - 1:
-#             bias_text -= 0.3
-#
-#         plt.errorbar(x=x_axis_vector[counter], y=beta1, yerr=[[beta1 - lower_bound_beta1], [upper_bound_beta1 - beta1]],
-#                      fmt='o', color='b', ecolor='r', elinewidth=2, capsize=5)
-#         # name regression coefficient
-#         plt.text(counter + bias_text, beta1, f"{beta1:.2f}" + "%", ha='center', va='center', fontsize=10, color='blue')
-#         # name confidence intervall limits
-#         plt.text(counter + bias_text, lower_bound_beta1, f"{lower_bound_beta1:.2f}" + "%", ha='center', va='top',
-#                  fontsize=8, color='red')
-#         plt.text(counter + bias_text, upper_bound_beta1, f"{upper_bound_beta1:.2f}" + "%", ha='center', va='bottom',
-#                  fontsize=8, color='red')
-#
-#         # for model quality
-#         R_squared_adj.append(np.round(model.rsquared_adj * 100, 2))
-#         counter += 1
-#
-#
-#     plt.ylim(-100, 100)
-#     plt.title('Regressionskoeffizienten mit 95% Konfidenzintervallen')
-#     plt.xlabel('Unabhängige Variable')
-#     plt.ylabel('Koeffizient / Einfluss auf die Zufriedenheit/Motivation [%]')
-#     plt.grid(True)
-#     # plt.xticks(rotation=90)
-#     plt.savefig("./plots/conf_intervals_beta1_" + str(name) + ".png")
-#     plt.close()
-#
-#     # plot model quality
-#     plt.figure(figsize=(10, 10))
-#     counter = 0
-#     for r in R_squared_adj:
-#         bars = plt.bar(x_axis_vector[counter], r, zorder=2)
-#         for bar in bars:
-#             yval = bar.get_height()  # Höhe der jeweiligen Bar
-#             plt.text(bar.get_x() + bar.get_width() / 2, yval + 1, f'{yval}' + '%', ha='center', fontsize=12,
-#                      fontweight='bold',
-#                      va='bottom', zorder=3)
-#             plt.grid(True, zorder=1)
-#         counter += 1
-#     plt.grid(True, zorder=1)
-#     plt.title("Modellqualität (Adjusted R²)")
-#     plt.ylim(0, 100)
-#     plt.xlabel('Unabhängige Variable')
-#     plt.ylabel('[%]')
-#     plt.savefig("./plots/R_squared_" + str(name) + ".png")
-#     plt.close()

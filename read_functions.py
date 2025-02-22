@@ -10,12 +10,21 @@ def read_data_from_questions(filename):
                  motivation [hyg, mot]
                  benefits [ben_hyg, ben_mot]
         """
+    # # definition of which questions, define what
+    # q_ffz_hyg_ORIG = ['A201', 'A214', 'A215', 'A217', 'A219', 'A222', 'A204', 'A221']
+    # q_ffz_mot_ORIG = ['A203', 'A206', 'A210', 'A211', 'A220', 'A205', 'A207', 'A208']
+    # # inverse ffz questions
+    # q_ffz_hyg_inv_ORIG = ['A204', 'A221']
+    # q_ffz_mot_inv_ORIG = ['A205', 'A207', 'A208']
+
     # definition of which questions, define what
-    q_ffz_hyg = ['A201', 'A214', 'A215', 'A217', 'A219', 'A222', 'A204', 'A221']
-    q_ffz_mot = ['A203', 'A206', 'A210', 'A211', 'A220', 'A205', 'A207', 'A208']
+    q_ffz_hyg = ['A214', 'A215', 'A221', 'A222']  # without 201 204, 217, 219
+    q_ffz_mot = ['A203', 'A206', 'A211', 'A220', 'A205', 'A207', 'A208']  # without 210, 216
     # inverse ffz questions
-    q_ffz_hyg_inv = ['A204', 'A221']
+    q_ffz_hyg_inv = ['A221']
     q_ffz_mot_inv = ['A205', 'A207', 'A208']
+
+
     # questions transformational
     q_mlq_tf = ['A306', 'A308', 'A310', 'A315', 'A318', 'A319', 'A321', 'A326', 'A329', 'A330', 'A331', 'A334', 'A336',
                 'A341', 'A347']
@@ -25,24 +34,30 @@ def read_data_from_questions(filename):
     q_mlq_ic = ['A319', 'A329', 'A331']
     q_mlq_is = ['A330', 'A347']
     # questions transactional
-    q_mlq_ta = ['A303', 'A311', 'A312', 'A316', 'A322', 'A327', 'A335'] #303, 312, evtl 322,
+    q_mlq_ta = ['A303', 'A311', 'A312', 'A316', 'A322', 'A327', 'A335']
     q_mlq_mbp = ['A303', 'A312']
     q_mlq_mba = ['A322', 'A327']
     q_mlq_cr = ['A311', 'A316', 'A335']
     # questions laissez faire
     q_mlq_lf = ['A307', 'A328']
     # questions benefits
-    q_ben_hyg = ['A218_01', 'A218_02', 'A218_04', 'A218_05', 'A218_08']
-    q_ben_mot = ['A218_03', 'A218_06', 'A218_07']
+    q_ben = ['A218_01', 'A218_02', 'A218_03', 'A218_04', 'A218_05', 'A218_06', 'A218_07', 'A218_08']
+    q_ben_maslow_1_phys = ['A218_04', 'A218_05']
+    q_ben_maslow_2_sich = ['A218_01', 'A218_02', 'A218_04']
+    q_ben_maslow_3_sozi = ['A218_02', 'A218_05', 'A218_03']
+    q_ben_maslow_4_indi = ['A218_06', 'A218_07', 'A218_08']
+    q_ben_maslow_5_sv = ['A218_03', 'A218_06', 'A218_07']
 
     # Read data from questions (A201 - A351) and filter incomplete rows
     data = pd.read_csv(filename, usecols=range(6, 60))
     data_filtered = data[~data.apply(lambda row: row.isna().any() or (row == -9).any(), axis=1)]
+    # filter only valid job-groups
+    data_filtered = data_filtered[data_filtered['A104'].isin([1, 2, 3, 5, 6])]
 
     # add "extra" questions
     data_filtered = data_filtered.copy()
     data_filtered['A219'] = (data_filtered['A201'] + data_filtered['A210']) / 2
-    data_filtered['A220'] = (data_filtered['A203'] + data_filtered['A206'] + data_filtered['A215']) / 2
+    data_filtered['A220'] = (data_filtered['A203'] + data_filtered['A206'] + data_filtered['A215']) / 3
     data_filtered['A221'] = (data_filtered['A207'] + data_filtered['A208']) / 2
     data_filtered['A222'] = (data_filtered['A211'] + data_filtered['A217']) / 2
 
@@ -65,18 +80,18 @@ def read_data_from_questions(filename):
 
     data_mlq_lf = data_filtered[q_mlq_lf]
 
-    data_ben_hyg = data_filtered[q_ben_hyg]
-    data_ben_mot = data_filtered[q_ben_mot]
-
-
+    # only benefits
+    data_ben = data_filtered[q_ben]
     # preprocess benefit data (1 = no, 2 = yes)
-    data_ben_hyg = data_ben_hyg.copy()
-    for q in q_ben_hyg:
-        data_ben_hyg[q] = data_ben_hyg[q].replace({1: 0, 2: 1})
+    data_ben = data_ben.copy()
+    for q in q_ben:
+        data_ben[q] = data_ben[q].replace({1: 0, 2: 1})
 
-    data_ben_mot = data_ben_mot.copy()
-    for q in data_ben_mot:
-        data_ben_mot[q] = data_ben_mot[q].replace({1: 0, 2: 1})
+    data_ben_maslow_1_phys = data_ben[q_ben_maslow_1_phys]
+    data_ben_maslow_2_sich = data_ben[q_ben_maslow_2_sich]
+    data_ben_maslow_3_sozi = data_ben[q_ben_maslow_3_sozi]
+    data_ben_maslow_4_indi = data_ben[q_ben_maslow_4_indi]
+    data_ben_maslow_5_sv = data_ben[q_ben_maslow_5_sv]
 
 
     # inverse lf data (questions are formulated inverted)
@@ -112,10 +127,15 @@ def read_data_from_questions(filename):
 
     lf = (data_mlq_lf.sum(axis=1) / len(q_mlq_lf)) * 20
 
-    ben_hyg = data_ben_hyg.sum(axis=1)
-    ben_mot = data_ben_mot.sum(axis=1)
+    ben_maslow_1_phys = data_ben_maslow_1_phys.sum(axis=1)
+    ben_maslow_2_sich = data_ben_maslow_2_sich.sum(axis=1)
+    ben_maslow_3_sozi = data_ben_maslow_3_sozi.sum(axis=1)
+    ben_maslow_4_indi = data_ben_maslow_4_indi.sum(axis=1)
+    ben_maslow_5_sv = data_ben_maslow_5_sv.sum(axis=1)
 
-    return [tf, iib, iia, im, ic, is_, ta, mbp, mba, cr, lf], [hyg, mot], [ben_hyg, ben_mot]
+    return [tf, iib, iia, im, ic, is_, ta, mbp, mba, cr, lf], [hyg, mot], [ben_maslow_1_phys, ben_maslow_2_sich,
+                                                                           ben_maslow_3_sozi, ben_maslow_4_indi,
+                                                                           ben_maslow_5_sv]
 
 
 def read_variable_values_csv(filename):

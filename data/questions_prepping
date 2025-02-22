@@ -80,12 +80,29 @@ A206			MOT
 A210			MOT
 A211			MOT
 A220			MOT     (A203 + A206 + A215)
-MOT = ['A203', 'A206', 'A210', 'A211', 'A220']
+MOT = ['A203', 'A206', 'A210', 'A211', 'A220', A216]
 
 A205			-MOT
 A207			-MOT
 A208			-MOT
 MOT_umkodiert = ['A205', 'A207', 'A208']
 
-A216			Nicht einbeziehen, da andere Fragestruktur
 A223	        Nicht einbeziehen, da eventuell anders beantwortet und Daten daher eventuell uneindeutig
+
+
+
+
+A218_01	Kinderbetreuung         Sicherheitsbedürfnisse
+A218_02	Arbeitszeitgestaltung   Sicherheitsbedürfnisse + Soziale Bedürfnisse
+A218_03	Sabbatical              Soziale Bedürfnisse + Selbstverwirklichung
+A218_04	Mobilitätszuschuss      Physiologische Bedürfnisse + Sicherheitsbedürfnisse
+A218_05	Work-Life-Balance       Physiologische Bedürfnisse + Soziale Bedürfnisse
+A218_06	Individuelle Förderung der Fort- und Weiterbildung  Individualbedürfnisse + Selbstverwirklichung
+A218_07	Förderung persönlicher Entwicklung                  Individualbedürfnisse + Selbstverwirklichung
+A218_08	Jährliche Feedbackgespräche                         Individualbedürfnisse
+
+q_ben_maslow_1_physiologisch = ['A218_04', 'A218_05']
+q_ben_maslow_2_sicherheit = ['A218_01', 'A218_02', 'A218_04']
+q_ben_maslow_3_sozial = ['A218_02', 'A218_05', 'A218_03']
+q_ben_maslow_4_individual = ['A218_06', 'A218_07', 'A218_08']
+q_ben_maslow_5_selbstverwirklichung = ['A218_03', 'A218_06', 'A218_07']
